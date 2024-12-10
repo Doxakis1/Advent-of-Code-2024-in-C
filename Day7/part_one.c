@@ -53,7 +53,7 @@ int64_t evaluate_answer(uint64_t *array, uint64_t combination, size_t arraySize)
 	return answer;
 }
 
-int validate_line(char *buffer)
+int64_t validate_line(char *buffer)
 {
 	uint64_t	array[1024];
 	uint64_t desiredAnswer = ascii_to_uint64(buffer);
@@ -73,7 +73,9 @@ int validate_line(char *buffer)
 	while(loopCounter <= combination)
 	{
 		if (evaluate_answer(array, loopCounter, arrayIndex) == desiredAnswer)
+		{
 			return desiredAnswer;
+		}
 		loopCounter++;
 	}
 	return 0;
